@@ -3,6 +3,8 @@ package com.project.techvision.domain;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.project.techvision.domain.enums.TipoProduto;
+
 import java.io.Serializable;
 
 @Document(collection = "produto")
@@ -14,7 +16,7 @@ public class Produto implements Serializable {
 
     private String nome;
     private String descricao;
-    private String tipo;
+    private TipoProduto tipo;
     private Double preco;
     private String marca;
     private Integer estoque;
@@ -24,7 +26,7 @@ public class Produto implements Serializable {
     public Produto() {
     }
 
-    public Produto(String id, String nome, String descricao, String tipo, Double preco,
+    public Produto(String id, String nome, String descricao, TipoProduto tipo, Double preco,
                    String marca, Integer estoque, String oticaId, String especificacoes) {
         this.id = id;
         this.nome = nome;
@@ -61,11 +63,11 @@ public class Produto implements Serializable {
         this.descricao = descricao;
     }
 
-    public String getTipo() {
+    public TipoProduto getTipo() {
         return tipo;
     }
 
-    public void setTipo(String tipo) {
+    public void setTipo(TipoProduto tipo) {
         this.tipo = tipo;
     }
 

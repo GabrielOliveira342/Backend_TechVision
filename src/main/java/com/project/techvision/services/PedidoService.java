@@ -33,5 +33,5 @@ public class PedidoService {
 
     public List<Pedido> findByUsuario(String usuarioId){
         return repo.findByUsuarioId(usuarioId);
-    }
+    } 
 }
