@@ -27,7 +27,7 @@ public class Produto implements Serializable {
     }
 
     public Produto(String id, String nome, String descricao, TipoProduto tipo, Double preco,
-                   String marca, Integer estoque, String oticaId, String especificacoes) {
+            String marca, Integer estoque, String oticaId, String especificacoes) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -39,30 +39,75 @@ public class Produto implements Serializable {
         this.especificacoes = especificacoes;
     }
 
-    public String getId() { return id; }
-    public void setId(String id) { this.id = id; }
+    public String getId() {
+        return id;
+    }
 
-    public String getNome() { return nome; }
-    public void setNome(String nome) { this.nome = nome; }
+    public void setId(String id) {
+        this.id = id;
+    }
 
-    public String getDescricao() { return descricao; }
-    public void setDescricao(String descricao) { this.descricao = descricao; }
+    public String getNome() {
+        return nome;
+    }
 
-    public TipoProduto getTipo() { return tipo; }
-    public void setTipo(TipoProduto tipo) { this.tipo = tipo; }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public Double getPreco() { return preco; }
-    public void setPreco(Double preco) { this.preco = preco; }
+    public String getDescricao() {
+        return descricao;
+    }
 
-    public String getMarca() { return marca; }
-    public void setMarca(String marca) { this.marca = marca; }
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
-    public Integer getEstoque() { return estoque; }
-    public void setEstoque(Integer estoque) { this.estoque = estoque; }
+    public TipoProduto getTipo() {
+        return tipo;
+    }
 
-    public String getOticaId() { return oticaId; }
-    public void setOticaId(String oticaId) { this.oticaId = oticaId; }
+    public void setTipo(TipoProduto tipo) {
+        this.tipo = tipo;
+    }
 
-    public String getEspecificacoes() { return especificacoes; }
-    public void setEspecificacoes(String especificacoes) { this.especificacoes = especificacoes; }
+    public Double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public Integer getEstoque() {
+        return estoque;
+    }
+
+    public void setEstoque(Integer estoque) {
+        this.estoque = estoque;
+    }
+
+    public String getOticaId() {
+        return oticaId;
+    }
+
+    public void setOticaId(String oticaId) {
+        this.oticaId = oticaId;
+    }
+
+    public String getEspecificacoes() {
+        return especificacoes;
+    }
+
+    public void setEspecificacoes(String especificacoes) {
+        this.especificacoes = especificacoes;
+    }
 }

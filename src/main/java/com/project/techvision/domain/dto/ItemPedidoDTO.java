@@ -17,13 +17,35 @@ public class ItemPedidoDTO {
         this.quantidade = quantidade;
     }
 
-    public String getProdutoId() { return produtoId; }
-    public String getNomeProduto() { return nomeProduto; }
-    public Double getPreco() { return preco; }
-    public Integer getQuantidade() { return quantidade; }
+    public String getProdutoId() {
+        return produtoId;
+    }
 
-    public void setProdutoId(String produtoId) { this.produtoId = produtoId; }
-    public void setNomeProduto(String nomeProduto) { this.nomeProduto = nomeProduto; }
-    public void setPreco(Double preco) { this.preco = preco; }
-    public void setQuantidade(Integer quantidade) { this.quantidade = quantidade; }
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setProdutoId(String produtoId) {
+        this.produtoId = produtoId;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
 }

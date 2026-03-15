@@ -18,7 +18,7 @@ public class ProdutoDTO {
     }
 
     public ProdutoDTO(String id, String nome, String descricao, TipoProduto tipo, Double preco,
-                      String marca, Integer estoque, String oticaId, String especificacoes) {
+            String marca, Integer estoque, String oticaId, String especificacoes) {
 
         this.id = id;
         this.nome = nome;
@@ -31,23 +31,75 @@ public class ProdutoDTO {
         this.especificacoes = especificacoes;
     }
 
-    public String getId() { return id; }
-    public String getNome() { return nome; }
-    public String getDescricao() { return descricao; }
-    public TipoProduto getTipo() { return tipo; }
-    public Double getPreco() { return preco; }
-    public String getMarca() { return marca; }
-    public Integer getEstoque() { return estoque; }
-    public String getOticaId() { return oticaId; }
-    public String getEspecificacoes() { return especificacoes; }
+    public String getId() {
+        return id;
+    }
 
-    public void setId(String id) { this.id = id; }
-    public void setNome(String nome) { this.nome = nome; }
-    public void setDescricao(String descricao) { this.descricao = descricao; }
-    public void setTipo(TipoProduto tipo) { this.tipo = tipo; }
-    public void setPreco(Double preco) { this.preco = preco; }
-    public void setMarca(String marca) { this.marca = marca; }
-    public void setEstoque(Integer estoque) { this.estoque = estoque; }
-    public void setOticaId(String oticaId) { this.oticaId = oticaId; }
-    public void setEspecificacoes(String especificacoes) { this.especificacoes = especificacoes; }
+    public String getNome() {
+        return nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public TipoProduto getTipo() {
+        return tipo;
+    }
+
+    public Double getPreco() {
+        return preco;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public Integer getEstoque() {
+        return estoque;
+    }
+
+    public String getOticaId() {
+        return oticaId;
+    }
+
+    public String getEspecificacoes() {
+        return especificacoes;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public void setTipo(TipoProduto tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setPreco(Double preco) {
+        this.preco = preco;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setEstoque(Integer estoque) {
+        this.estoque = estoque;
+    }
+
+    public void setOticaId(String oticaId) {
+        this.oticaId = oticaId;
+    }
+
+    public void setEspecificacoes(String especificacoes) {
+        this.especificacoes = especificacoes;
+    }
 }

@@ -1,43 +1,42 @@
 package com.project.techvision.domain;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.project.techvision.domain.dto.PedidoDTO;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
-@Document(collection = "pedido")
-public class Pedido implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Pedido {
 
-    @Id
     private String id;
-
     private String usuarioId;
     private String receitaId;
-
     private String status;
     private LocalDateTime dataPedido;
-
     private Double valorTotal;
     private String enderecoEntrega;
-
-    private List<ItemPedido> itens = new ArrayList<>();
 
     public Pedido() {
     }
 
-    public Pedido(String id, String usuarioId, String receitaId, String status,
-                  LocalDateTime dataPedido, Double valorTotal, String enderecoEntrega) {
-        this.id = id;
-        this.usuarioId = usuarioId;
-        this.receitaId = receitaId;
-        this.status = status;
-        this.dataPedido = dataPedido;
-        this.valorTotal = valorTotal;
-        this.enderecoEntrega = enderecoEntrega;
+    public Pedido(PedidoDTO dto) {
+        this.id = dto.getId();
+        this.usuarioId = dto.getUsuarioId();
+        this.receitaId = dto.getReceitaId();
+        this.status = dto.getStatus();
+        this.dataPedido = dto.getDataPedido();
+        this.valorTotal = dto.getValorTotal();
+        this.enderecoEntrega = dto.getEnderecoEntrega();
+    }
+
+    public PedidoDTO toDTO() {
+        return new PedidoDTO(
+                this.id,
+                this.usuarioId,
+                this.receitaId,
+                this.status,
+                this.dataPedido,
+                this.valorTotal,
+                this.enderecoEntrega,
+                null);
     }
 
     public String getId() {
@@ -68,10 +67,6 @@ public class Pedido implements Serializable {
         return enderecoEntrega;
     }
 
-    public List<ItemPedido> getItens() {
-        return itens;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
@@ -98,9 +93,5 @@ public class Pedido implements Serializable {
 
     public void setEnderecoEntrega(String enderecoEntrega) {
         this.enderecoEntrega = enderecoEntrega;
-    }
-
-    public void setItens(List<ItemPedido> itens) {
-        this.itens = itens;
     }
 }

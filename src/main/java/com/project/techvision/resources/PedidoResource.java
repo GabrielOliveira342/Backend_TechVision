@@ -1,6 +1,6 @@
 package com.project.techvision.resources;
 
-import com.project.techvision.domain.Pedido;
+import com.project.techvision.domain.dto.PedidoDTO;
 import com.project.techvision.services.PedidoService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,26 +17,38 @@ public class PedidoResource {
     private PedidoService service;
 
     @GetMapping
-    public ResponseEntity<List<Pedido>> findAll(){
-        List<Pedido> list = service.findAll();
+    public ResponseEntity<List<PedidoDTO>> findAll(){
+        List<PedidoDTO> list = service.findAll();
         return ResponseEntity.ok().body(list);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pedido> findById(@PathVariable String id){
-        Pedido obj = service.findById(id);
+    public ResponseEntity<PedidoDTO> findById(@PathVariable String id){
+        PedidoDTO obj = service.findById(id);
         return ResponseEntity.ok().body(obj);
     }
 
     @GetMapping("/user/{usuarioId}")
-    public ResponseEntity<List<Pedido>> findByUsuario(@PathVariable String usuarioId){
-        List<Pedido> list = service.findByUsuario(usuarioId);
+    public ResponseEntity<List<PedidoDTO>> findByUsuario(@PathVariable String usuarioId){
+        List<PedidoDTO> list = service.findByUsuario(usuarioId);
         return ResponseEntity.ok().body(list);
     }
 
     @PostMapping
-    public ResponseEntity<Pedido> insert(@RequestBody Pedido obj){
-        obj = service.insert(obj);
+    public ResponseEntity<PedidoDTO> insert(@RequestBody PedidoDTO dto){
+        dto = service.insert(dto);
+        return ResponseEntity.ok().body(dto);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<PedidoDTO> update(@PathVariable String id, @RequestBody PedidoDTO dto){
+        PedidoDTO obj = service.update(id, dto);
         return ResponseEntity.ok().body(obj);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id){
+        service.delete(id);
+        return ResponseEntity.noContent().build();
     }
 }
