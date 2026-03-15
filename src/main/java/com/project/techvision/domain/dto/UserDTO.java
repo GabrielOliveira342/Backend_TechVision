@@ -40,44 +40,66 @@ public class UserDTO {
     }
 
     public String getId() { 
-        return id; }
-    
+        return id; 
+    }
+
     public String getName() { 
-        return name; }
-    
+        return name; 
+    }
+
     public String getEmail() { 
-        return email; }
-    
+        return email; 
+    }
+
     public String getPhone() { 
-        return phone; }
-    
-    public TipoUsuario getTipoUsuario() {
-         return tipoUsuario; }
-    
-     public String getEndereco() {
-         return endereco; }
-    
-     public LocalDateTime getDataCadastro() { 
-        return dataCadastro; }
+        return phone; 
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public TipoUsuario getTipoUsuario() { 
+        return tipoUsuario; 
+    }
+
+    public String getEndereco() { 
+        return endereco; 
+    }
+
+    public LocalDateTime getDataCadastro() { 
+        return dataCadastro; 
+    }
 
     public void setId(String id) { 
-        this.id = id; }
-    
+        this.id = id; 
+    }
+
     public void setName(String name) { 
-        this.name = name; }
-    
+        this.name = name; 
+    }
+
     public void setEmail(String email) { 
-        this.email = email; }
-    
+        this.email = email; 
+    }
+
     public void setPhone(String phone) { 
-        this.phone = phone; }
-    
+        this.phone = phone; 
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public void setTipoUsuario(TipoUsuario tipoUsuario) { 
-        this.tipoUsuario = tipoUsuario; }
-    
+        this.tipoUsuario = tipoUsuario; 
+    }
+
     public void setEndereco(String endereco) { 
-        this.endereco = endereco; }
-    
+        this.endereco = endereco; 
+    }
+
     public void setDataCadastro(LocalDateTime dataCadastro) { 
-        this.dataCadastro = dataCadastro; }
+        this.dataCadastro = dataCadastro; 
+    }
 }
