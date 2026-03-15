@@ -39,75 +39,30 @@ public class Produto implements Serializable {
         this.especificacoes = especificacoes;
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+    public String getNome() { return nome; }
+    public void setNome(String nome) { this.nome = nome; }
 
-    public String getNome() {
-        return nome;
-    }
+    public String getDescricao() { return descricao; }
+    public void setDescricao(String descricao) { this.descricao = descricao; }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+    public TipoProduto getTipo() { return tipo; }
+    public void setTipo(TipoProduto tipo) { this.tipo = tipo; }
 
-    public String getDescricao() {
-        return descricao;
-    }
+    public Double getPreco() { return preco; }
+    public void setPreco(Double preco) { this.preco = preco; }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
+    public String getMarca() { return marca; }
+    public void setMarca(String marca) { this.marca = marca; }
 
-    public TipoProduto getTipo() {
-        return tipo;
-    }
+    public Integer getEstoque() { return estoque; }
+    public void setEstoque(Integer estoque) { this.estoque = estoque; }
 
-    public void setTipo(TipoProduto tipo) {
-        this.tipo = tipo;
-    }
+    public String getOticaId() { return oticaId; }
+    public void setOticaId(String oticaId) { this.oticaId = oticaId; }
 
-    public Double getPreco() {
-        return preco;
-    }
-
-    public void setPreco(Double preco) {
-        this.preco = preco;
-    }
-
-    public String getMarca() {
-        return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
-    }
-
-    public Integer getEstoque() {
-        return estoque;
-    }
-
-    public void setEstoque(Integer estoque) {
-        this.estoque = estoque;
-    }
-
-    public String getOticaId() {
-        return oticaId;
-    }
-
-    public void setOticaId(String oticaId) {
-        this.oticaId = oticaId;
-    }
-
-    public String getEspecificacoes() {
-        return especificacoes;
-    }
-
-    public void setEspecificacoes(String especificacoes) {
-        this.especificacoes = especificacoes;
-    }
+    public String getEspecificacoes() { return especificacoes; }
+    public void setEspecificacoes(String especificacoes) { this.especificacoes = especificacoes; }
 }

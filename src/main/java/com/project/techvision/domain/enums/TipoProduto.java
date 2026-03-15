@@ -1,8 +1,9 @@
 package com.project.techvision.domain.enums;
 
 public enum TipoProduto {
-    
-    ARMAÇÃO,
+
+    ARMACAO,
     LENTE,
-    ÓCULOS_SOL
+    OCULOS_SOL,
+    ACESSORIO
 }
