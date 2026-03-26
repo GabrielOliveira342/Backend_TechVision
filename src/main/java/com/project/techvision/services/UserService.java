@@ -10,6 +10,7 @@ import com.project.techvision.domain.dto.UserDTO;
 import com.project.techvision.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -18,6 +19,9 @@ public class UserService {
     @Autowired
     private UserRepository repo;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     // LISTAR
     public List<UserDTO> findAll() {
         List<User> list = repo.findAll();
@@ -25,20 +29,23 @@ public class UserService {
     }
 
     // BUSCAR POR ID
-    public UserDTO findById(String id){
+    public UserDTO findById(String id) {
         Optional<User> obj = repo.findById(id);
         return toDTO(obj.orElseThrow());
     }
 
-    // INSERIR
-    public User insert(UserDTO dto){
+    // INSERIR (AGORA COM CRIPTOGRAFIA)
+    public User insert(UserDTO dto) {
         User obj = fromDTO(dto);
+
+        obj.setPassword(passwordEncoder.encode(dto.getPassword())); // 🔐 AQUI
         obj.setDataCadastro(LocalDateTime.now());
+
         return repo.insert(obj);
     }
 
     // ATUALIZAR
-    public User update(String id, UserDTO dto){
+    public User update(String id, UserDTO dto) {
         Optional<User> obj = repo.findById(id);
         User user = obj.orElseThrow();
 
@@ -48,49 +55,56 @@ public class UserService {
     }
 
     // DELETAR
-    public void delete(String id){
+    public void delete(String id) {
         Optional<User> obj = repo.findById(id);
         obj.orElseThrow();
         repo.deleteById(id);
     }
+    
+    public boolean validarLogin(String email, String senha) {
+        Optional<User> userOpt = repo.findByEmail(email);
 
-    private void updateData(User user, UserDTO dto){
+        if (userOpt.isPresent()) {
+            User user = userOpt.get();
+            return passwordEncoder.matches(senha, user.getPassword());
+        }
+
+        return false;
+    }
+
+    private void updateData(User user, UserDTO dto) {
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
         user.setPhone(dto.getPhone());
         user.setEndereco(dto.getEndereco());
         user.setTipoUsuario(dto.getTipoUsuario());
 
-        if(dto.getPassword() != null){
-            user.setPassword(dto.getPassword());
+        if (dto.getPassword() != null) {
+            user.setPassword(passwordEncoder.encode(dto.getPassword())); // 🔐
         }
     }
 
-    // Converter DTO → Entity
-    private User fromDTO(UserDTO dto){
+    private User fromDTO(UserDTO dto) {
         User user = new User();
 
         user.setId(dto.getId());
         user.setName(dto.getName());
         user.setEmail(dto.getEmail());
         user.setPhone(dto.getPhone());
-        user.setPassword(dto.getPassword());
         user.setTipoUsuario(dto.getTipoUsuario());
         user.setEndereco(dto.getEndereco());
 
         return user;
     }
 
-    // Converter Entity → DTO
-    private UserDTO toDTO(User user){
+    private UserDTO toDTO(User user) {
         return new UserDTO(
-            user.getId(),
-            user.getName(),
-            user.getEmail(),
-            user.getPhone(),
-            user.getTipoUsuario(),
-            user.getEndereco(),
-            user.getDataCadastro()
-        );
+                user.getId(),
+                user.getName(),
+                user.getEmail(),
+                user.getPhone(),
+                user.getTipoUsuario(),
+                user.getEndereco(),
+                user.getDataCadastro());
     }
 }

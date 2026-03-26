@@ -19,6 +19,7 @@ public class User implements Serializable {
     private String name;
     private String email;
     private String phone;
+
     private String password;
 
     private TipoUsuario tipoUsuario;
@@ -32,7 +33,7 @@ public class User implements Serializable {
     }
 
     public User(String id, String name, String email, String phone, String password,
-                TipoUsuario tipoUsuario, String endereco, LocalDateTime dataCadastro) {
+            TipoUsuario tipoUsuario, String endereco, LocalDateTime dataCadastro) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -122,8 +123,10 @@ public class User implements Serializable {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (!(obj instanceof User)) return false;
+        if (this == obj)
+            return true;
+        if (!(obj instanceof User))
+            return false;
         User other = (User) obj;
         return id != null && id.equals(other.id);
     }
