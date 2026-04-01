@@ -10,11 +10,11 @@ public class LoginDTO {
     private String email;
 
     @NotBlank
-    private String senha;
+    private String password;
 
     public String getEmail() { return email; }
-    public String getSenha() { return senha; }
+    public String getPassword() { return password; }
 
     public void setEmail(String email) { this.email = email; }
-    public void setSenha(String senha) { this.senha = senha; }
+    public void setPassword(String password) { this.password = password; }
 }

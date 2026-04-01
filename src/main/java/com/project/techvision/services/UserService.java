@@ -22,19 +22,19 @@ public class UserService {
     @Autowired
     private PasswordEncoder passwordEncoder;
 
-    // LISTAR
+    
     public List<UserDTO> findAll() {
         List<User> list = repo.findAll();
         return list.stream().map(this::toDTO).collect(Collectors.toList());
     }
 
-    // BUSCAR POR ID
+    
     public UserDTO findById(String id) {
         Optional<User> obj = repo.findById(id);
         return toDTO(obj.orElseThrow());
     }
 
-    // INSERIR (AGORA COM CRIPTOGRAFIA)
+   
     public User insert(UserDTO dto) {
         User obj = fromDTO(dto);
 
@@ -44,7 +44,7 @@ public class UserService {
         return repo.insert(obj);
     }
 
-    // ATUALIZAR
+    
     public User update(String id, UserDTO dto) {
         Optional<User> obj = repo.findById(id);
         User user = obj.orElseThrow();
@@ -54,7 +54,7 @@ public class UserService {
         return repo.save(user);
     }
 
-    // DELETAR
+    
     public void delete(String id) {
         Optional<User> obj = repo.findById(id);
         obj.orElseThrow();
